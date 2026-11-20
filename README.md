@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NEURIVANTA
 
-## Getting Started
+A responsive, multi-page brand site built with Next.js App Router, React, TypeScript, and Tailwind CSS. The current routes are content-first and statically rendered by Next.js. They use Server Components by default, so client-side JavaScript is only needed when an interactive feature is added.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/` — brand landing page
+- `/about` — brand story and principles
+- `/contact` — static contact page with an email link
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app/` — route pages, shared layout, metadata, and global styles
+- `src/components/` — shared site header and footer
+- `src/lib/site.ts` — brand details and navigation data
+- `public/` — static assets
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Brand settings
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The contact page uses `hello@neurivanta.com` as a starter address. Set `NEXT_PUBLIC_CONTACT_EMAIL` in your environment (or update `src/lib/site.ts`) to use the final contact address. `.env.example` shows the variable.
 
-## Deploy on Vercel
+The page copy is intentionally broad because the brand’s products and services have not been defined yet. Update the content in `src/app/` when the positioning is ready.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Grow into dynamic features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The site does not enable static-export mode. Its current pages are prerendered, while the standard Next.js runtime remains available for future data-backed pages, route handlers, forms, or authentication. Add client components only for UI that needs browser interaction.
+
+## Build and run
+
+```bash
+npm run build
+npm run start
+```
+
+The app was scaffolded with Next.js 16.4.6, React 19.3, and Tailwind CSS 4.3.3. Dependency versions are recorded in `package-lock.json`.
